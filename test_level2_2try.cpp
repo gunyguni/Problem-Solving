@@ -1,35 +1,24 @@
 #include <string>
 #include <vector>
-#include <algorithm>
 
 using namespace std;
 
-using namespace std;
-
-int solution(vector<int> people, int limit) {
-    int answer = 0;
+vector<int> solution(int n, long long left, long long right) {
+    vector<int> answer;
     
-    sort(people.begin(), people.end());
+    long long nll = n;
+    int row = 0, col = 0;
 
-    int start = 0, end = people.size() - 1;
+    for (long long i = left; i < right; i++) {
+        row = i % nll;
+        col = i / nll;
 
-    while (start <= end) {
-        if (start == end) {
-            answer++;
-            break;
-        }
-
-        if (people[end] + people[start] > limit) {
-            end--;
+        if (row > col) {
+            answer.push_back(row + 1);
         } else {
-            start++;
-            end--;
+            answer.push_back(col + 1);
         }
-
-        answer++;
     }
-
-
     
     return answer;
 }
