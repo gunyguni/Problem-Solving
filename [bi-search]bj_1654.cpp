@@ -9,14 +9,14 @@ int main() {
     cin >> n >> k;
 
     long long input;
-    long long maxlen = 0;
+    long long sum = 0;
     for(int i = 0; i < n; i++) {
         cin >> wire[i];
-        if (maxlen < wire[i]) maxlen = wire[i];
+        sum += input;
     }
 
 
-    long long front = 0, back = maxlen + 1;
+    long long front = 0, back = sum/k + 1;
 
     long long max = 0;
 
